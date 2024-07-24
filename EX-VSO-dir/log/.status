@@ -1,11 +1,123 @@
-{"mode":"bt","id":"","event":"启动中","progress":1,"msg":"初始化"}
-{"mode":"bt","id":"","event":"启动中","progress":2,"msg":"调用用户自定义初始化配置"}
-{"mode":"bt","id":"","event":"启动中","progress":3,"msg":"初始化基础数据"}
-{"mode":"bt","id":"","event":"启动中","progress":4,"msg":"初始化合约"}
-{"mode":"bt","id":"","event":"启动中","progress":5,"msg":"初始化指标: 20240724-130546-477"}
-{"mode":"bt","id":"","event":"启动中","progress":6,"msg":"启动数据加载..."}
-{"mode":"bt","id":"","event":"启动中","progress":7,"msg":"初始化模型"}
-{"mode":"bt","id":"","event":"启动中","progress":8}
-{"mode":"bt","id":"","event":"启动中","progress":9}
-{"mode":"bt","id":"","event":"运行中","progress":10,"msg":"20240724-130546-477初始化完毕"}
-{"mode":"bt","id":"","event":"已完成","progress":100,"annual_return":0,"cost_sec":0.065607416,"max_drawdown":0.2872524003134084,"total_return":0.24992963999999995}
+{"id":"","mode":"train","event":"启动中","progress":1,"msg":"初始化"}
+{"id":"","mode":"train","event":"启动中","progress":2,"msg":"调用用户自定义初始化配置"}
+{"id":"","mode":"train","event":"启动中","progress":3,"msg":"初始化基础数据"}
+{"id":"","mode":"train","event":"启动中","progress":4,"msg":"初始化合约"}
+{"id":"","mode":"train","event":"启动中","progress":5,"msg":"初始化指标: 20240724-150648-244"}
+{"id":"","mode":"train","event":"启动中","progress":6,"msg":"启动数据加载..."}
+{"id":"","mode":"train","event":"启动中","progress":7,"msg":"初始化模型"}
+{"id":"","mode":"train","event":"运行中","progress":8,"msg":"初始化完毕: 20240724-150648-244"}
+{"id":"","mode":"train","event":"运行中","progress":9,"msg":"迭代: 0 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":10,"msg":"迭代: 1 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":11,"msg":"迭代: 2 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":12,"msg":"迭代: 3 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":13,"msg":"迭代: 4 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":14,"msg":"迭代: 5 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":15,"msg":"迭代: 6 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":16,"msg":"迭代: 7 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":17,"msg":"迭代: 8 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":18,"msg":"迭代: 9 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":19,"msg":"迭代: 10 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":20,"msg":"迭代: 11 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":21,"msg":"迭代: 12 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":22,"msg":"迭代: 13 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":23,"msg":"迭代: 14 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":24,"msg":"迭代: 15 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":25,"msg":"迭代: 16 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":26,"msg":"迭代: 17 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":27,"msg":"迭代: 18 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":28,"msg":"迭代: 19 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":29,"msg":"迭代: 20 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":30,"msg":"迭代: 21 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":31,"msg":"迭代: 22 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":32,"msg":"迭代: 23 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":33,"msg":"迭代: 24 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":34,"msg":"迭代: 25 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":35,"msg":"迭代: 26 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":36,"msg":"迭代: 27 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":37,"msg":"迭代: 28 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":38,"msg":"迭代: 29 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":39,"msg":"迭代: 30 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":40,"msg":"迭代: 31 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":41,"msg":"迭代: 32 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":42,"msg":"迭代: 33 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":43,"msg":"迭代: 34 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":44,"msg":"迭代: 35 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":45,"msg":"迭代: 36 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":46,"msg":"迭代: 37 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":47,"msg":"迭代: 38 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":48,"msg":"迭代: 39 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":48.5,"msg":"迭代: 40 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":49,"msg":"迭代: 41 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":49.5,"msg":"迭代: 42 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":50,"msg":"迭代: 43 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":50.5,"msg":"迭代: 44 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":51,"msg":"迭代: 45 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":51.5,"msg":"迭代: 46 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":52,"msg":"迭代: 47 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":52.5,"msg":"迭代: 48 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":53,"msg":"迭代: 49 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":53.5,"msg":"迭代: 50 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":54,"msg":"迭代: 51 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":54.5,"msg":"迭代: 52 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":55,"msg":"迭代: 53 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":55.5,"msg":"迭代: 54 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":56,"msg":"迭代: 55 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":56.5,"msg":"迭代: 56 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":57,"msg":"迭代: 57 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":57.5,"msg":"迭代: 58 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":58,"msg":"迭代: 59 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":58.5,"msg":"迭代: 60 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":59,"msg":"迭代: 61 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":59.5,"msg":"迭代: 62 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":60,"msg":"迭代: 63 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":60.5,"msg":"迭代: 64 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":61,"msg":"迭代: 65 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":61.5,"msg":"迭代: 66 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":62,"msg":"迭代: 67 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":62.5,"msg":"迭代: 68 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":63,"msg":"迭代: 69 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":63.5,"msg":"迭代: 70 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":64,"msg":"迭代: 71 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":64.5,"msg":"迭代: 72 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":65,"msg":"迭代: 73 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":65.5,"msg":"迭代: 74 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":66,"msg":"迭代: 75 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":66.5,"msg":"迭代: 76 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":67,"msg":"迭代: 77 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":67.5,"msg":"迭代: 78 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":68,"msg":"迭代: 79 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":68.5,"msg":"迭代: 80 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":69,"msg":"迭代: 81 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":69.5,"msg":"迭代: 82 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":70,"msg":"迭代: 83 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":70.5,"msg":"迭代: 84 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":71,"msg":"迭代: 85 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":71.5,"msg":"迭代: 86 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":71.75,"msg":"迭代: 87 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":72,"msg":"迭代: 88 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":72.25,"msg":"迭代: 89 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":72.5,"msg":"迭代: 90 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":72.75,"msg":"迭代: 91 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":73,"msg":"迭代: 92 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":73.25,"msg":"迭代: 93 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":73.5,"msg":"迭代: 94 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":73.75,"msg":"迭代: 95 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":74,"msg":"迭代: 96 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":74.25,"msg":"迭代: 97 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":74.5,"msg":"迭代: 98 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":74.75,"msg":"迭代: 99 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":75,"msg":"迭代: 100 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":75.25,"msg":"迭代: 101 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":75.5,"msg":"迭代: 102 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":75.75,"msg":"迭代: 103 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":76,"msg":"迭代: 104 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":76.25,"msg":"迭代: 105 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":76.5,"msg":"迭代: 106 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":76.75,"msg":"迭代: 107 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":77,"msg":"迭代: 108 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":77.25,"msg":"迭代: 109 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":77.5,"msg":"迭代: 110 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":77.75,"msg":"迭代: 111 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":78,"msg":"迭代: 112 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":78.25,"msg":"迭代: 113 / 200"}
+{"id":"","mode":"train","event":"运行中","progress":78.5,"msg":"迭代: 114 / 200"}

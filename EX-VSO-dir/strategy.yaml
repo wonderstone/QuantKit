@@ -31,7 +31,7 @@ strategy-param:
 
   - name: gep_mode
     type: string
-    default: false
+    default: true
     comment: "是否启用GEP模式分支"
 
   - name: hold_num_para

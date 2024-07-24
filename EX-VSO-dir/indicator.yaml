@@ -40,12 +40,12 @@ indicator: # 指标配置
   - name: bpc
     func: Const
     param:
-      Num: 0.01
+      Num: 0.82
 
   - name: npc
     func: Const
     param:
-      Num: 100
+      Num: 0.47
 
   - name: divc
     func: Const
