@@ -1,0 +1,5 @@
+{"level":"debug","time":"2024-07-23 10:41:35","message":"启动运行模式: train"}
+{"level":"debug","time":"2024-07-23 10:41:35","message":"启动运行id: 20240723-104135-488"}
+{"level":"debug","time":"2024-07-23 10:41:35","message":"启动运行路径: ./EX-VS-dir"}
+{"level":"info","time":"2024-07-23 10:41:40","message":"第0代最优基因组序号: 219, 得分: 2.531506, Exp: [+.Neg.-.d3./.d5.d2.d1.d7./.d2.d8.d1.d3.d5.d5.d2.d1.d7.d4.d9 *.-.d1.Neg./.d3.*.d2.Neg.d9.d6.d1.d1.d8.d4.d3.d7.d2.d0.d9.d5]"}
+{"level":"info","time":"2024-07-23 10:41:45","message":"第1代最优基因组序号: 1, 得分: 2.531506, Exp: [+.Neg.-.d3./.d5.d2.d1.d7./.d2.d8.d1.d3.d5.d5.d2.d1.d7.d4.d9 *.-.d1.Neg./.d3.*.d2.Neg.d9.d6.d1.d1.d8.d4.d3.d7.d2.d0.d9.d5]"}

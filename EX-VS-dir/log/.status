@@ -1,0 +1,11 @@
+{"id":"","mode":"train","event":"启动中","progress":1,"msg":"初始化"}
+{"id":"","mode":"train","event":"启动中","progress":2,"msg":"调用用户自定义初始化配置"}
+{"id":"","mode":"train","event":"启动中","progress":3,"msg":"初始化基础数据"}
+{"id":"","mode":"train","event":"启动中","progress":4,"msg":"初始化合约"}
+{"id":"","mode":"train","event":"启动中","progress":5,"msg":"初始化指标: 20240723-104135-488"}
+{"id":"","mode":"train","event":"启动中","progress":6,"msg":"启动数据加载..."}
+{"id":"","mode":"train","event":"启动中","progress":7,"msg":"初始化模型"}
+{"id":"","mode":"train","event":"运行中","progress":8,"msg":"初始化完毕: 20240723-104135-488"}
+{"id":"","mode":"train","event":"运行中","progress":9,"msg":"迭代: 0 / 500"}
+{"id":"","mode":"train","event":"运行中","progress":10,"msg":"迭代: 1 / 500"}
+{"id":"","mode":"train","event":"运行中","progress":11,"msg":"迭代: 2 / 500"}

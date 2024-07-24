@@ -1,0 +1,11 @@
+{"mode":"bt","id":"","event":"启动中","progress":1,"msg":"初始化"}
+{"mode":"bt","id":"","event":"启动中","progress":2,"msg":"调用用户自定义初始化配置"}
+{"mode":"bt","id":"","event":"启动中","progress":3,"msg":"初始化基础数据"}
+{"mode":"bt","id":"","event":"启动中","progress":4,"msg":"初始化合约"}
+{"mode":"bt","id":"","event":"启动中","progress":5,"msg":"初始化指标: 20240724-130546-477"}
+{"mode":"bt","id":"","event":"启动中","progress":6,"msg":"启动数据加载..."}
+{"mode":"bt","id":"","event":"启动中","progress":7,"msg":"初始化模型"}
+{"mode":"bt","id":"","event":"启动中","progress":8}
+{"mode":"bt","id":"","event":"启动中","progress":9}
+{"mode":"bt","id":"","event":"运行中","progress":10,"msg":"20240724-130546-477初始化完毕"}
+{"mode":"bt","id":"","event":"已完成","progress":100,"annual_return":0,"cost_sec":0.065607416,"max_drawdown":0.2872524003134084,"total_return":0.24992963999999995}

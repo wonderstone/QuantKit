@@ -1,0 +1,53 @@
+# 目录默认位于项目整体根目录的 indicators 目录下 {ProjectRoot}/../indicator
+indicator: # 指标配置
+  # - name: all
+  #   func: CSVGetter
+  #   param:
+  #     DateColName: end_date
+  #     InstColName: data_code
+  #     IndiName: b1_factor_value
+  #     Mode: LV
+
+  # - name: bp
+  #   func: CSVGetter
+  #   param:
+  #     DateColName: end_date
+  #     InstColName: data_code
+  #     IndiName: b2_factor_value
+  #     Mode: LV
+
+  # - name: np
+  #   func: CSVGetter
+  #   param:
+  #     DateColName: end_date
+  #     InstColName: data_code
+  #     IndiName: b3_factor_value
+  #     Mode: LV
+
+  # - name: div
+  #   func: CSVGetter
+  #   param:
+  #     DateColName: end_date
+  #     InstColName: data_code
+  #     IndiName: b4_factor_value
+  #     Mode: LV
+
+  # - name: allc
+  #   func: Const
+  #   param:
+  #     Num: 5.2
+
+  - name: bpc
+    func: Const
+    param:
+      Num: 0.01
+
+  - name: npc
+    func: Const
+    param:
+      Num: 100
+
+  - name: divc
+    func: Const
+    param:
+      Num: 1.0

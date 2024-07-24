@@ -1,0 +1,40 @@
+{"id":"","mode":"train","event":"启动中","progress":1,"msg":"初始化"}
+{"id":"","mode":"train","event":"启动中","progress":2,"msg":"调用用户自定义初始化配置"}
+{"id":"","mode":"train","event":"启动中","progress":3,"msg":"初始化基础数据"}
+{"id":"","mode":"train","event":"启动中","progress":4,"msg":"初始化合约"}
+{"id":"","mode":"train","event":"启动中","progress":5,"msg":"初始化指标: 20240627-123540-310"}
+{"id":"","mode":"train","event":"启动中","progress":6,"msg":"启动数据加载..."}
+{"id":"","mode":"train","event":"启动中","progress":7,"msg":"初始化模型"}
+{"id":"","mode":"train","event":"运行中","progress":8,"msg":"初始化完毕: 20240627-123540-310"}
+{"id":"","mode":"train","event":"运行中","progress":9,"msg":"迭代: 0 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":10,"msg":"迭代: 1 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":11,"msg":"迭代: 2 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":12,"msg":"迭代: 3 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":13,"msg":"迭代: 4 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":14,"msg":"迭代: 5 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":15,"msg":"迭代: 6 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":16,"msg":"迭代: 7 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":17,"msg":"迭代: 8 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":18,"msg":"迭代: 9 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":19,"msg":"迭代: 10 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":20,"msg":"迭代: 11 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":21,"msg":"迭代: 12 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":22,"msg":"迭代: 13 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":23,"msg":"迭代: 14 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":24,"msg":"迭代: 15 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":25,"msg":"迭代: 16 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":26,"msg":"迭代: 17 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":27,"msg":"迭代: 18 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":28,"msg":"迭代: 19 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":29,"msg":"迭代: 20 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":30,"msg":"迭代: 21 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":31,"msg":"迭代: 22 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":32,"msg":"迭代: 23 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":33,"msg":"迭代: 24 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":34,"msg":"迭代: 25 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":35,"msg":"迭代: 26 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":36,"msg":"迭代: 27 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":37,"msg":"迭代: 28 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":38,"msg":"迭代: 29 / 30"}
+{"id":"","mode":"train","event":"运行中","progress":39,"msg":"迭代: 30 / 30"}
+{"id":"","mode":"train","event":"已完成","progress":100,"msg":"训练完成, 模型输出到文件：EX-DMT-dir/expression.yaml"}

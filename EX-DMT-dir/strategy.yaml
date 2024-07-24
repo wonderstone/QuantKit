@@ -1,0 +1,10 @@
+strategy:
+  name: "日线择时策略" # 策略名称
+  tag: [ "Stock" ] # 策略标签
+  desc: "日线择时策略" # 策略描述
+
+strategy-param:
+  - name: min_cash_ratio
+    type: float
+    default: 0.05
+    comment: "最小现金比例"

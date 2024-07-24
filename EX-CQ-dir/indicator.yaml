@@ -1,0 +1,169 @@
+# 目录默认位于项目整体根目录的 indicators 目录下 {ProjectRoot}/../indicator
+indicator: # 指标配置
+  - name: MACD # 指标名称
+    func: MACDF # 指标类型
+    param: # 指标参数
+      Freq: 4 # 指标参数的参数
+      Base: Close # 指标参数的参数
+      S: 12 # 指标参数的参数
+      L: 26 # 指标参数的参数
+      N: 9 # 指标参数的参数
+
+  - name: MACDR
+    func: Refreq
+    depend:
+      - MACD
+    param:
+      Base: MACD
+      N: 1
+      Freq: 4
+
+  - name: MA
+    func: MAF
+    input:
+      Close: 5
+    depend:
+      - Close
+    param:
+      Freq: 4
+
+  - name: MAR
+    func: Refreq
+    depend:
+      - MA
+    param:
+      Base: MA
+      N: 1
+      Freq: 4
+
+  - name: MAClose1dR3
+    func: MAD
+    input:
+      Close1dR: 3
+    depend:
+      - Close1dR
+    param:
+      Tag: D
+
+  - name: MAClose1dR3R1
+    func: Refd
+    depend:
+      - MAClose1dR3
+    param:
+      Base: MAClose1dR3
+      N: 1
+      Tag: D
+
+  - name: MACDClose1dR3
+    func: MACDD
+    param:
+      Base: Close1dR
+      S: 12 # 指标参数的参数
+      L: 26 # 指标参数的参数
+      N: 9 # 指标参数的参数
+      Tag: D
+
+  - name: MACDClose1dR3R1
+    func: Refd
+    depend:
+      - MACDClose1dR3
+    param:
+      Base: MACDClose1dR3
+      N: 1
+      Tag: D
+
+  - name: MAClose1wR3
+    func: MAD
+    input:
+      Close1wR: 3
+    depend:
+      - Close1wR
+      - Close1w
+    param:
+      Tag: W
+
+  - name: MAClose1wR3R1
+    func: Refd
+    depend:
+      - MAClose1wR3
+    param:
+      Base: MAClose1wR3
+      N: 1
+      Tag: W
+
+  - name: MACDClose1wR3
+    func: MACDD
+    param:
+      Base: Close1wR
+      S: 12 # 指标参数的参数
+      L: 26 # 指标参数的参数
+      N: 9 # 指标参数的参数
+      Tag: W
+
+  - name: MACDClose1wR3R1
+    func: Refd
+    depend:
+      - MACDClose1wR3
+    param:
+      Base: MACDClose1wR3
+      N: 1
+      Tag: W
+
+  - name: MA5_15
+    func: MA
+    input:
+      Close: 10
+
+  - name: MA3_1D
+    func: MA
+    input:
+      Close: 15
+
+  - name: MA5_1D
+    func: MA
+    input:
+      Close: 20
+
+  - name: MA3_1W
+    func: MA
+    input:
+      Close: 50
+
+  - name: MA5_1W
+    func: MA
+    input:
+      Close: 50
+
+  - name: Close1d
+    func: DailyFactor
+    param:
+      Mode: Train
+      Source: ./EX-CQ-dir/download/1dfactor
+      Handler: sqlite
+      Factor: Close1d
+
+  - name: Close1dR
+    func: Refd
+    depend:
+      - Close1d
+    param:
+      Base: Close1d
+      N: 1
+      Tag: D
+
+  - name: Close1w
+    func: DailyFactor
+    param:
+      Mode: Train
+      Source: ./EX-CQ-dir/download/1wfactor
+      Handler: sqlite
+      Factor: Close1w
+
+  - name: Close1wR
+    func: Refd
+    depend:
+      - Close1w
+    param:
+      Base: Close1w
+      N: 1
+      Tag: W

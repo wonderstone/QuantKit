@@ -1,0 +1,37 @@
+gep: # GEP参数
+  mode: "Genome" # Genome 和 GenomeSet， 默认是 Genome。所有不能被正确解析的将是默认的。
+  input-function: # 用于生成表达式的函数及其权重
+    - func: "-"
+      weight: 2
+    - func: "+"
+      weight: 2
+    - func: "/"
+      weight: 2
+    - func: "*"
+      weight: 2
+    # - func: "AND1"
+    #   weight: 2
+    # - func: "OR1"
+    #   weight: 2
+    # - func: "LOE2G"
+    #   weight: 2
+    - func: "Neg"
+      weight: 5
+  iteration: 200 # 迭代次数
+  pmutate: 0.2 # 突变概率
+  pis: 0.1 # 插入概率
+  glis: 3 # 插入长度
+  pris: 0.1 # 重复插入概率
+  glris: 3 # 重复插入长度
+  pgene: 0.5 # 基因突变概率
+  p1p: 0.5 # 基因1点交换概率
+  p2p: 0.5 # 基因2点交换概率
+  pr: 0.3 # 基因重复概率
+  num-genomeset: 2 # 当采用genomeset形式，本数值相当于population，下数值相当于输出几个表达式
+  num-genome: 50 # 当采用genome形式，本数值相当于population， should be >=2 or panic
+  head-size: 10 # 基因头部长度
+  num-genome-per-genomeset: 2 # 每个基因集包含的基因数
+  num-gene-per-genome: 2 # 每个基因包含的基因片段数
+  num-constant: 1 # 常量个数
+  link-func: "+" # 每个Gene之间的连接函数
+

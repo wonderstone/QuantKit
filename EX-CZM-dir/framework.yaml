@@ -1,0 +1,42 @@
+performance: # 评估指标
+  risk-free-rate: 0.00 # 无风险利率
+  performance-type: "total-return" # 评估指标类型
+  expect-fitness: 5000.0 # 满意预期，达到即终止，可设定大一些，迫使算法持续搜索
+
+framework: # 训练运行参数，会被回测运行参数里的数据优先覆盖
+  indicator: [
+      "Open",
+      "Close",
+      "High",
+      "Low",
+      b1_factor_value,
+      b2_factor_value,
+      b3_factor_value,
+      b4_factor_value,
+      b5_factor_value,
+      b6_factor_value,
+    ] # 参与的指标
+
+  stock:
+    cash: 100000.0 # 初始资金
+    slippage: 1.0 # 滑点
+  future:
+    cash: 0.0
+    slippage: 1 # 滑点
+
+  # 回测频率 调试阶段数据下载完成前 不要改
+  frequency: "1day" # 1min, 5min, 15min, 30min, 60min, 1day, 1week, 1month
+
+  begin: 20190102 # 启动时间
+  end: 20240327 # 结束时间
+
+  #&! 分钟级别 我怀疑这个字段没有意义
+  daily-trigger-time: "14:50" # 触发时间（日线）
+
+  instrument:
+    - 600664.XSHG.CS
+    - 600662.XSHG.CS
+    - 600663.XSHG.CS
+    - 000488.XSHE.CS
+    - 000498.XSHE.CS
+    - 000501.XSHE.CS

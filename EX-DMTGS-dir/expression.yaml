@@ -1,0 +1,9 @@
+train-id: 20240411-151445-393
+gep:
+    mode: GenomeSet
+    score: 1.2136142
+    kes:
+        - - -.Neg.d4./.d1.d0.d4.d4.d3.d7.d3
+          - d7.d3.d3.Neg.d7.d1.d4.d5.d0.d4.d4
+        - - Neg.d7.d0.Neg.*.d3.d0.d2.d5.d5.d4
+          - d1.d2.+.d7.d4.d3.d0.d1.d1.d7.d3

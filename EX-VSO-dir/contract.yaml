@@ -1,0 +1,57 @@
+target-prop:
+  stock:
+    - name: main-board # 主板
+      contract-size: 100 #一手数目
+      tick-size: 0.01 #最小变动价位
+      min-order-vol: 100 #最小下单量
+      t-plus: 1 #T+0还是T+1
+      transfer-fee-rate: 0.0006 #过户费
+      tax-rate: 0.001 #印花税
+      comm-broker-rate: 0.0003 #券商佣金
+      min-fees: 5.0 #最小佣金
+    - name: star #科创板
+      contract-size: 1
+      tick-size: 0.01 #最小变动价位
+      min-order-vol: 200 #最小下单量
+      t-plus: 1 #T+0还是T+1
+      transfer-fee-rate: 0.00001
+      tax-rate: 0.001
+      comm-broker-rate: 0.0000687
+      min-fees: 5.0
+    - name: chi-next
+      contract-size: 1
+      tick-size: 0.01 #最小变动价位
+      min-order-vol: 200 #最小下单量
+      t-plus: 1 #T+0还是T+1
+      transfer-fee-rate: 0.00001
+      tax-rate: 0.001
+      comm-broker-rate: 0.0000687
+      min-fees: 5.0
+    - name: etf
+      contract-size: 100.0
+      tick-size: 0.001 #最小变动价位
+      min-order-vol: 100 #最小下单量
+      t-plus: 1 #T+0还是T+1
+      transfer-fee-rate: 0.00001
+      tax-rate: 0.0
+      comm-broker-rate: 0.0000687
+      min-fees: 0.0
+
+  future:
+    - name: au #填入品种名称
+      contract-size: 1000.0 #合约乘数
+      tick-size: 0.02 #最小变动价位
+      t-plus: 0 #T+0还是T+1
+
+      margin-long: 10.0 #多头保证金
+      margin-short: 10.0 #空头保证金
+      margin-broker: 0.0 #券商保证金
+
+      comm-open: 2.0 #开仓手续费，按手数计算
+      comm-close-today: 0.0 #平今手续费，按手数计算
+      comm-close-previous: 2.0 #平昨手续费，按手数计算
+      comm-broker: 0.01 #券商手续费，按手数计算
+      comm-open-rate: 0.0 #开仓手续费，按比例计算
+      comm-close-today-rate: 0.0 #平今手续费，按比例计算
+      comm-close-previous-rate: 0.02 #平昨手续费，按比例计算
+      comm-broker-rate: 0.01 #券商手续费，按比例计算

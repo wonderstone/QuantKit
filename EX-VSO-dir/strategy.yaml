@@ -1,0 +1,55 @@
+strategy:
+  name: "排序买入" # 策略名称
+  tag: ["Stock", "Future"] # 策略标签
+  desc: "排序买入" # 策略描述
+
+strategy-param:
+  - name: buy_num
+    type: int
+    default: 5
+    comment: "选出表现最好的标的的数量"
+
+  - name: max_min_ratio
+    type: float
+    default: 2
+    comment: "资金相差比例"
+
+  - name: cash_used_ratio
+    type: float
+    default: 0.95
+    comment: "使用账户资金的比例"
+
+  - name: lvmode
+    type: string
+    default: LV
+    comment: "是否启用lastvalue模式"
+
+  - name: log_on
+    type: string
+    default: false
+    comment: "是否打开log"
+
+  - name: gep_mode
+    type: string
+    default: false
+    comment: "是否启用GEP模式分支"
+
+  - name: hold_num_para
+    type: string
+    default: 70,1
+    comment: "百分比或最低持有数量"
+
+  - name: source
+    type: string
+    default: /Users/wonderstone/Desktop/QuantKit/EX-VS-dir/download/1dayfactor/to_gep.csv
+    comment: "to_gep.csv location"
+
+  - name: inst_col_name
+    type: string
+    default: data_code
+    comment: "instrument column name"
+
+  - name: date_col_name
+    type: string
+    default: end_date
+    comment: "date column name"

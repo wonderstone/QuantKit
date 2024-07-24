@@ -1,0 +1,7 @@
+train-id: 20240627-123540-310
+gep:
+    mode: Genome
+    score: 1.2321823522766666
+    kes:
+        - - '*.-.Neg.d6.d0.d7.d3'
+          - -.d0.Neg.d7.d6.d0.d3

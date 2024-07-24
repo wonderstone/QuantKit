@@ -1,0 +1,25 @@
+strategy:
+  name: "日线择时策略" # 策略名称
+  tag: ["Stock"] # 策略标签
+  desc: "日线择时策略" # 策略描述
+
+strategy-param:
+  - name: stimecritic
+    type: string
+    default: "14:50"
+    comment: "开始时间设置"
+
+  - name: ftimecritic
+    type: string
+    default: "14:50"
+    comment: "结束时间设置"
+
+  - name: min_cash_ratio
+    type: float
+    default: 0.01
+    comment: "最小现金比例"
+
+  - name: initmoney
+    type: float
+    default: 1000000
+    comment: "初始现金"

@@ -1,0 +1,4 @@
+{"level":"debug","time":"2024-04-10 15:05:20","message":"启动运行模式: bt"}
+{"level":"debug","time":"2024-04-10 15:05:20","message":"启动运行id: 20240410-150520-158"}
+{"level":"debug","time":"2024-04-10 15:05:20","message":"启动运行路径: ./EX-CQ-dir"}
+{"level":"warn","time":"2024-04-10 15:05:20","message":"读取除权除息数据失败, err: stat EX-CQ-dir/download/base/xrxd.csv: no such file or directory"}

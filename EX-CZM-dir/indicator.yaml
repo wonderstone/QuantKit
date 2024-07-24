@@ -1,0 +1,49 @@
+# 目录默认位于项目整体根目录的 indicators 目录下 {ProjectRoot}/../indicator
+indicator: # 指标配置
+  - name: b1_factor_value
+    func: Getter
+    param:
+      Source: ./EX-CZM-dir/download/1dayfactor/aaa.csv
+      DateColName: end_date
+      InstColName: data_code
+      IndiName: b1_factor_value
+
+  - name: b2_factor_value
+    func: Getter
+    param:
+      Source: ./EX-CZM-dir/download/1dayfactor/aaa.csv
+      DateColName: end_date
+      InstColName: data_code
+      IndiName: b2_factor_value
+
+  - name: b3_factor_value
+    func: Getter
+    param:
+      Source: ./EX-CZM-dir/download/1dayfactor/aaa.csv
+      DateColName: end_date
+      InstColName: data_code
+      IndiName: b3_factor_value
+
+  - name: b4_factor_value
+    func: Getter
+    param:
+      Source: ./EX-CZM-dir/download/1dayfactor/aaa.csv
+      DateColName: end_date
+      InstColName: data_code
+      IndiName: b4_factor_value
+
+  - name: b5_factor_value
+    func: Getter
+    param:
+      Source: ./EX-CZM-dir/download/1dayfactor/aaa.csv
+      DateColName: end_date
+      InstColName: data_code
+      IndiName: b5_factor_value
+
+  - name: b6_factor_value
+    func: Getter
+    param:
+      Source: ./EX-CZM-dir/download/1dayfactor/aaa.csv
+      DateColName: end_date
+      InstColName: data_code
+      IndiName: b6_factor_value

@@ -1,0 +1,21 @@
+# 目录默认位于项目整体根目录的 indicators 目录下 {ProjectRoot}/../indicator
+indicator: # 指标配置
+  - name: MA3 # 指标名称
+    func: MA # 指标类型
+    input: # 指标输入
+      Close: 3 # 指标输入的参数
+
+  - name: MA5
+    func: MA
+    input:
+      Close: 5
+
+  - name: MA8
+    func: MA
+    input:
+      Close: 8
+
+  - name: MA10
+    func: MA
+    input:
+      Close: 10

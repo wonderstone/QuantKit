@@ -1,0 +1,20 @@
+strategy:
+  name: "排序买入" # 策略名称
+  tag: ["Stock", "Future"] # 策略标签
+  desc: "排序买入" # 策略描述
+
+strategy-param:
+  - name: buy_num
+    type: int
+    default: 5
+    comment: "选出表现最好的标的的数量"
+
+  - name: max_min_ratio
+    type: float
+    default: 2
+    comment: "资金相差比例"
+
+  - name: cash_used_ratio
+    type: float
+    default: 0.95
+    comment: "使用账户资金的比例"

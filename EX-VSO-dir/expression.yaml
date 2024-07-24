@@ -1,0 +1,7 @@
+train-id: 20240723-152725-285
+gep:
+    mode: Genome
+    score: 2.52054664
+    kes:
+        - - +.d0.+.d3./.d3.Neg././.d3.d2.d0.d4.d1.d3.d6.d6.d0.d1.d5.d3
+          - d0./.d6.d0.d4.-.d2.d1.Neg.d4.d5.d5.d6.d3.d1.d0.d4.d0.d3.d1.d4

@@ -1,0 +1,315 @@
+performance: # 评估指标
+  risk-free-rate: 0.00 # 无风险利率
+  performance-type: "total-return" # 评估指标类型
+  expect-fitness: 5000.0 # 满意预期，达到即终止，可设定大一些，迫使算法持续搜索
+
+framework: # 训练运行参数，会被回测运行参数里的数据优先覆盖
+  indicator: [
+      "Open",
+      "Close",
+      "High",
+      "Low",
+      "MACD",
+      "MACDR",
+      "MA",
+      "MAR",
+      "MAClose1dR3",
+      "MAClose1dR3R1",
+      "MACDClose1dR3",
+      "MACDClose1dR3R1",
+      "MAClose1wR3",
+      "MAClose1wR3R1",
+      "MACDClose1wR3",
+      "MACDClose1wR3R1",
+      "MA5_15",
+      "MA3_1D",
+      "MA5_1D",
+      "MA3_1W",
+      "MA5_1W",
+      "Close1d",
+      "Close1dR",
+      "Close1w",
+      "Close1wR",
+    ] # 参与的指标
+
+  stock:
+    cash: 100000.0 # 初始资金
+    slippage: 1.0 # 滑点
+  future:
+    cash: 0.0
+    slippage: 1 # 滑点
+
+  # 回测频率 调试阶段数据下载完成前 不要改
+  frequency: "30min" # 1min, 5min, 15min, 30min, 60min, 1day, 1week, 1month
+
+  begin: 20100102 # 启动时间
+  end: 20231020 # 结束时间
+
+  #&! 分钟级别 我怀疑这个字段没有意义
+  daily-trigger-time: "14:50" # 触发时间（日线）
+
+  instrument:
+    - 510300.XSHG.CS
+    # - 600000.XSHG.CS
+    # - 600004.XSHG.CS
+    # - 600006.XSHG.CS
+    # - 600007.XSHG.CS
+    # - 600008.XSHG.CS
+    # - 600009.XSHG.CS
+    # - 600010.XSHG.CS
+    # - 600011.XSHG.CS
+    # - 600012.XSHG.CS
+    # - 600015.XSHG.CS
+    # - 600016.XSHG.CS
+    # - 600017.XSHG.CS
+    # - 600018.XSHG.CS
+    # - 600019.XSHG.CS
+    # - 600020.XSHG.CS
+    # - 600021.XSHG.CS
+    # - 600022.XSHG.CS
+    # - 600023.XSHG.CS
+    # - 600025.XSHG.CS
+    # - 600026.XSHG.CS
+    # - 600027.XSHG.CS
+    # - 600028.XSHG.CS
+    # - 600029.XSHG.CS
+    # - 600030.XSHG.CS
+    # - 600031.XSHG.CS
+    # - 600032.XSHG.CS
+    # - 600033.XSHG.CS
+    # - 600035.XSHG.CS
+    # - 600036.XSHG.CS
+    # - 600037.XSHG.CS
+    # - 600038.XSHG.CS
+    # - 600039.XSHG.CS
+    # - 600048.XSHG.CS
+    # - 600050.XSHG.CS
+    # - 600051.XSHG.CS
+    # - 600052.XSHG.CS
+    # - 600053.XSHG.CS
+    # - 600054.XSHG.CS
+    # - 600055.XSHG.CS
+    # - 600056.XSHG.CS
+    # - 600057.XSHG.CS
+    # - 600058.XSHG.CS
+    # - 600059.XSHG.CS
+    # - 600060.XSHG.CS
+    # - 600061.XSHG.CS
+    # - 600062.XSHG.CS
+    # - 600063.XSHG.CS
+    # - 600064.XSHG.CS
+    # - 600066.XSHG.CS
+    # - 600067.XSHG.CS
+    # - 600070.XSHG.CS
+    # - 600071.XSHG.CS
+    # - 600072.XSHG.CS
+    # - 600073.XSHG.CS
+    # - 600075.XSHG.CS
+    # - 600076.XSHG.CS
+    # - 600077.XSHG.CS
+    # - 600078.XSHG.CS
+    # - 600079.XSHG.CS
+    # - 600080.XSHG.CS
+    # - 600081.XSHG.CS
+    # - 600082.XSHG.CS
+    # - 600083.XSHG.CS
+    # - 600084.XSHG.CS
+    # - 600085.XSHG.CS
+    # - 600088.XSHG.CS
+    # - 600089.XSHG.CS
+    # - 600094.XSHG.CS
+    # - 600095.XSHG.CS
+    # - 600096.XSHG.CS
+    # - 600097.XSHG.CS
+    # - 600098.XSHG.CS
+    # - 600099.XSHG.CS
+    # - 600100.XSHG.CS
+    # - 600101.XSHG.CS
+    # - 600103.XSHG.CS
+    # - 600104.XSHG.CS
+    # - 600105.XSHG.CS
+    # - 600106.XSHG.CS
+    # - 600107.XSHG.CS
+    # - 600108.XSHG.CS
+    # - 600109.XSHG.CS
+    # - 600110.XSHG.CS
+    # - 600111.XSHG.CS
+    # - 600112.XSHG.CS
+    # - 600113.XSHG.CS
+    # - 600114.XSHG.CS
+    # - 600115.XSHG.CS
+    # - 600116.XSHG.CS
+    # - 600117.XSHG.CS
+    # - 600118.XSHG.CS
+    # - 600119.XSHG.CS
+    # - 600120.XSHG.CS
+    # - 600121.XSHG.CS
+    # - 600122.XSHG.CS
+    # - 600123.XSHG.CS
+    # - 600125.XSHG.CS
+    # - 600126.XSHG.CS
+    # - 600127.XSHG.CS
+    # - 600128.XSHG.CS
+    # - 600129.XSHG.CS
+    # - 600130.XSHG.CS
+    # - 600131.XSHG.CS
+    # - 600132.XSHG.CS
+    # - 600133.XSHG.CS
+    # - 600135.XSHG.CS
+    # - 600136.XSHG.CS
+    # - 600137.XSHG.CS
+    # - 600138.XSHG.CS
+    # - 600139.XSHG.CS
+    # - 600141.XSHG.CS
+    # - 600143.XSHG.CS
+    # - 600148.XSHG.CS
+    # - 600149.XSHG.CS
+    # - 600150.XSHG.CS
+    # - 600151.XSHG.CS
+    # - 600152.XSHG.CS
+    # - 600153.XSHG.CS
+    # - 600155.XSHG.CS
+    # - 600156.XSHG.CS
+    # - 600157.XSHG.CS
+    # - 600158.XSHG.CS
+    # - 600159.XSHG.CS
+    # - 600160.XSHG.CS
+    # - 600161.XSHG.CS
+    # - 600162.XSHG.CS
+    # - 600163.XSHG.CS
+    # - 600165.XSHG.CS
+    # - 600166.XSHG.CS
+    # - 600167.XSHG.CS
+    # - 600168.XSHG.CS
+    # - 600169.XSHG.CS
+    # - 600170.XSHG.CS
+    # - 600171.XSHG.CS
+    # - 600172.XSHG.CS
+    # - 600173.XSHG.CS
+    # - 600176.XSHG.CS
+    # - 600177.XSHG.CS
+    # - 600178.XSHG.CS
+    # - 600179.XSHG.CS
+    # - 600180.XSHG.CS
+    # - 600182.XSHG.CS
+    # - 600183.XSHG.CS
+    # - 600184.XSHG.CS
+    # - 600185.XSHG.CS
+    # - 600186.XSHG.CS
+    # - 600187.XSHG.CS
+    # - 600188.XSHG.CS
+    # - 600189.XSHG.CS
+    # - 600190.XSHG.CS
+    # - 600191.XSHG.CS
+    # - 600192.XSHG.CS
+    # - 600193.XSHG.CS
+    # - 600195.XSHG.CS
+    # - 600196.XSHG.CS
+    # - 600197.XSHG.CS
+    # - 600198.XSHG.CS
+    # - 600199.XSHG.CS
+    # - 600200.XSHG.CS
+    # - 600201.XSHG.CS
+    # - 600202.XSHG.CS
+    # - 600203.XSHG.CS
+    # - 600206.XSHG.CS
+    # - 600207.XSHG.CS
+    # - 600208.XSHG.CS
+    # - 600210.XSHG.CS
+    # - 600211.XSHG.CS
+    # - 600212.XSHG.CS
+    # - 600213.XSHG.CS
+    # - 600215.XSHG.CS
+    # - 600216.XSHG.CS
+    # - 600217.XSHG.CS
+    # - 600218.XSHG.CS
+    # - 600219.XSHG.CS
+    # - 600220.XSHG.CS
+    # - 600221.XSHG.CS
+    # - 600222.XSHG.CS
+    # - 600223.XSHG.CS
+    # - 600225.XSHG.CS
+    # - 600226.XSHG.CS
+    # - 600227.XSHG.CS
+    # - 600228.XSHG.CS
+    # - 600229.XSHG.CS
+    # - 600230.XSHG.CS
+    # - 600231.XSHG.CS
+    # - 600232.XSHG.CS
+    # - 600233.XSHG.CS
+    # - 600234.XSHG.CS
+    # - 600235.XSHG.CS
+    # - 600236.XSHG.CS
+    # - 600237.XSHG.CS
+    # - 600238.XSHG.CS
+    # - 600239.XSHG.CS
+    # - 600241.XSHG.CS
+    # - 600242.XSHG.CS
+    # - 600243.XSHG.CS
+    # - 600246.XSHG.CS
+    # - 600248.XSHG.CS
+    # - 600249.XSHG.CS
+    # - 600250.XSHG.CS
+    # - 600251.XSHG.CS
+    # - 600252.XSHG.CS
+    # - 600255.XSHG.CS
+    # - 600256.XSHG.CS
+    # - 600257.XSHG.CS
+    # - 600258.XSHG.CS
+    # - 600259.XSHG.CS
+    # - 600260.XSHG.CS
+    # - 600261.XSHG.CS
+    # - 600262.XSHG.CS
+    # - 600267.XSHG.CS
+    # - 600268.XSHG.CS
+    # - 600269.XSHG.CS
+    # - 600271.XSHG.CS
+    # - 600272.XSHG.CS
+    # - 600273.XSHG.CS
+    # - 600276.XSHG.CS
+    # - 600277.XSHG.CS
+    # - 600278.XSHG.CS
+    # - 600279.XSHG.CS
+    # - 600280.XSHG.CS
+    # - 600281.XSHG.CS
+    # - 600282.XSHG.CS
+    # - 600283.XSHG.CS
+    # - 600284.XSHG.CS
+    # - 600285.XSHG.CS
+    # - 600287.XSHG.CS
+    # - 600288.XSHG.CS
+    # - 600289.XSHG.CS
+    # - 600290.XSHG.CS
+    # - 600292.XSHG.CS
+    # - 600293.XSHG.CS
+    # - 600295.XSHG.CS
+    # - 600297.XSHG.CS
+    # - 600298.XSHG.CS
+    # - 600299.XSHG.CS
+    # - 600300.XSHG.CS
+    # - 600301.XSHG.CS
+    # - 600302.XSHG.CS
+    # - 600303.XSHG.CS
+    # - 600305.XSHG.CS
+    # - 600306.XSHG.CS
+    # - 600307.XSHG.CS
+    # - 600308.XSHG.CS
+    # - 600309.XSHG.CS
+    # - 600310.XSHG.CS
+    # - 600311.XSHG.CS
+    # - 600312.XSHG.CS
+    # - 600313.XSHG.CS
+    # - 600315.XSHG.CS
+    # - 600316.XSHG.CS
+    # - 600318.XSHG.CS
+    # - 600319.XSHG.CS
+    # - 600320.XSHG.CS
+    # - 600321.XSHG.CS
+    # - 600322.XSHG.CS
+    # - 600323.XSHG.CS
+    # - 600325.XSHG.CS
+    # - 600326.XSHG.CS
+    # - 600327.XSHG.CS
+    # - 600328.XSHG.CS
+    # - 600329.XSHG.CS
+    # - 600330.XSHG.CS

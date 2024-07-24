@@ -1,0 +1,20 @@
+{"mode":"bt","id":"","event":"启动中","progress":1,"msg":"初始化"}
+{"mode":"bt","id":"","event":"启动中","progress":2,"msg":"调用用户自定义初始化配置"}
+{"mode":"bt","id":"","event":"启动中","progress":3,"msg":"初始化基础数据"}
+{"mode":"bt","id":"","event":"启动中","progress":4,"msg":"初始化合约"}
+{"mode":"bt","id":"","event":"启动中","progress":5,"msg":"初始化指标: 20240709-165959-107"}
+{"mode":"bt","id":"","event":"启动中","progress":6,"msg":"启动数据加载..."}
+{"mode":"bt","id":"","event":"启动中","progress":7,"msg":"初始化模型"}
+{"mode":"bt","id":"","event":"启动中","progress":8}
+{"mode":"bt","id":"","event":"启动中","progress":9}
+{"mode":"bt","id":"","event":"运行中","progress":10,"msg":"20240709-165959-107初始化完毕"}
+{"mode":"bt","id":"","event":"运行中","progress":11,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":12,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":13,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":14,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":15,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":16,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":17,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":18,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":19,"msg":"回测中"}
+{"mode":"bt","id":"","event":"运行中","progress":20,"msg":"回测中"}
