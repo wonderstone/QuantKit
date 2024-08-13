@@ -276,13 +276,3 @@ func (s *SortBuy) sell(instID string, qty, price float64) bool {
 	}
 }
 
-// ContainNaN 此处是为了停盘数据处理设定的规则相检查用的
-func ContainNaN(m dataframe.StreamingRecord) bool {
-	for _, x := range m.Data {
-		if len(x) == 0 {
-			return true
-		}
-	}
-	return false
-}
-

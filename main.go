@@ -138,7 +138,8 @@ func main() {
 				// return &strategy.VS02{}
 				// return &strategy.VS03{}
 				// return &strategy.VS04{}
-				return &strategy.VSO{}
+				// return &strategy.VSO{}
+				return &strategy.VSS{}
 			},
 		),
 	)

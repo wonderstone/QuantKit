@@ -4,6 +4,9 @@ import (
 	// "fmt"
 
 	"math"
+	"sort"
+	"strconv"
+	"strings"
 
 	// "sort"
 	"time"
@@ -18,7 +21,6 @@ import (
 	"github.com/wonderstone/QuantKit/tools/dataframe"
 )
 
-
 // ! WHY ADD FOLLOWING TWO VARIABLES HERE GONNA MESS UP?
 // ! var TM time.Time
 // ! var Indicators *orderedmap.OrderedMap[string, dataframe.StreamingRecord]
@@ -28,22 +30,32 @@ import (
 // // todo: 2. indicator has only basic price info and consts
 // // todo: 3. use ondailyopen or ondailyclose to trigger the trade
 // // todo: 4. use ontick to get the indicators and save then in the strategy
-// // todo: 5. use the saved Indicators and VS base info to trigger the trade
+// todo: 5. use the saved indicators and VS base info to trigger the trade
 // // todo: 6. reduce data required from 3 to 2
 // todo: 7. GEPSlice needs to actually have 2 parts
 // todo: 8. frequency cannot be daily anymore for replay/nextmode.go 208 line
+type SortRankVS struct {
+	instID string  // 合约ID
+	close  float64 // 收盘价
+	signal float64 // 信号
+	vscond	bool	// 是否满足VS条件
+	// posAmt float64 // 持仓金额
+}
 
-type VSO struct {
+
+
+type VSS struct {
 	handler.EmptyStrategy // 继承EmptyStrategy类，可以减少实现不想处理的方法
 
 	acc account.Account // 账户
 
-	sInstrument []string   // 股票标的名称
-	sIndicators []string   // 股票参与GEP指标名称
-	tmpTargets  []SortRank // 临时目标集合
-
-	notTODay map[string]void // 是否为起始日集合
-
+	sInstrument    []string   // 股票标的名称
+	sIndicators    []string   // 股票参与GEP指标名称
+	tmpTargets     []SortRankVS // 临时目标集合
+	vsTargets      []SortRankVS
+	notTODay       map[string]void // 是否为起始日集合
+	vsHoldNumR     int
+	vsHoldNumM     int
 	fMaxMinRatio   float64 // 等差数列差值
 	fCashUsedRatio float64 // 资金利用率
 	iBuyNum        int     // 买入数量
@@ -58,14 +70,14 @@ type VSO struct {
 	// todo: VS base info and indicators saved in the strategy
 	// CSVData    map[string]map[string]map[string]string
 	indicators *orderedmap.OrderedMap[string, dataframe.StreamingRecord]
-	tmpDate string
+	tmpDate    string
 
-	TM time.Time
+	TM         time.Time
 	parmp      map[string]string
 	lastvalMap map[string]map[string]string // map[instr]map[indi]lastval
 }
 
-func (s *VSO) OnInitialize(framework handler.Framework) {
+func (s *VSS) OnInitialize(framework handler.Framework) {
 
 	s.acc = framework.Account().GetAccountByID(config.AccountTypeStockSimple)
 	c := framework.ConfigStrategyFromFile()
@@ -80,6 +92,19 @@ func (s *VSO) OnInitialize(framework handler.Framework) {
 	s.fCashUsedRatio = config.GetParam(c, "cash_used_ratio", 0.90)
 	s.iBuyNum = config.GetParam(c, "buy_num", 5)
 	s.lvMode = config.GetParam(c, "lv_mode", "LV")
+	vspara := config.GetParam(c, "hold_num_para", "20,5")
+	// sepereate the string vspara with ","
+	vsparaSlice := strings.Split(vspara, ",")
+	tmpR, err := strconv.Atoi(vsparaSlice[0])
+	if err != nil {
+		panic(err)
+	}
+	s.vsHoldNumR = tmpR
+	tmpM, err := strconv.Atoi(vsparaSlice[1])
+	if err != nil {
+		panic(err)
+	}
+	s.vsHoldNumM = tmpM
 	// get bLogOn
 	tmp := config.GetParam(c, "log_on", "false")
 	switch tmp {
@@ -96,9 +121,7 @@ func (s *VSO) OnInitialize(framework handler.Framework) {
 	default:
 		s.bGEPMode = false
 	}
-
 	s.parmp = make(map[string]string)
-
 	s.parmp["bp"] = "b2_factor_value"
 	s.parmp["np"] = "b3_factor_value"
 	s.parmp["div"] = "b4_factor_value"
@@ -109,25 +132,15 @@ func (s *VSO) OnInitialize(framework handler.Framework) {
 
 }
 
-
-
-func (s *VSO) OnDailyClose(framework handler.Framework, acc map[string]account.Account) {
+func (s *VSS) OnDailyClose(framework handler.Framework, acc map[string]account.Account) {
 	// config.DebugF("%s 盘前时间", framework.CurrTime())
 
 	// reset s.tmpTargets
-	s.tmpTargets = make([]SortRank, 0)
+	s.tmpTargets = make([]SortRankVS, 0)
 
-	// if framework.CurrDate().Format("2006-01-02") == "2021-04-30" {
-	// 	fmt.Println("2021-04-30")
-	// }
+	// // check if the date is 2021-04-30
 
-
-	// config.DebugF("%s 触发交易", framework.CurrTime())
-	// && 调整到目标仓位模式
-	// & Step 0: 确认标的操作顺序和数量, 这段代码位置并不固定
-	// & Step 0.0 : 建立并初始化“信号集合”以产生“目标列表”，后者可能是前者的一部分
-	// let signals be a SortRank slice
-	signals := make([]SortRank, 0)
+	signals := make([]SortRankVS, 0)
 	// & Step 0.1 : 更新集合信息
 	closes := make(map[string]float64) // 用于记录股票标的名称和close价
 	for pIndicate := s.indicators.Oldest(); pIndicate != nil; pIndicate = pIndicate.Next() {
@@ -136,6 +149,7 @@ func (s *VSO) OnDailyClose(framework handler.Framework, acc map[string]account.A
 		if s.lastvalMap[pIndicate.Key] == nil {
 			// has three keys bp, np, div, value is ""
 			s.lastvalMap[pIndicate.Key] = map[string]string{"bp": "", "np": "", "div": ""}
+
 		}
 		//
 		closePrice := indicate.ConvertToFloat("Close")
@@ -149,9 +163,18 @@ func (s *VSO) OnDailyClose(framework handler.Framework, acc map[string]account.A
 		np, errnp := TryConvertToFloat(tmpnp)
 		tmpdiv := s.GetCSVData(s.tmpDate, pIndicate.Key, s.parmp["div"], s.lastvalMap[pIndicate.Key], "div")
 		div, errdiv := TryConvertToFloat(tmpdiv)
-		tmpslice := []float64{bp, np, div}
+		
+		
+		
+		tmpbpv:= s.GetCSVDataVal(s.tmpDate, pIndicate.Key, s.parmp["bp"], s.lastvalMap[pIndicate.Key], "bp")
+		bpv , _ := TryConvertToFloat(tmpbpv)
+		tmpnpv:= s.GetCSVDataVal(s.tmpDate, pIndicate.Key, s.parmp["np"], s.lastvalMap[pIndicate.Key], "np")
+		npv , _ := TryConvertToFloat(tmpnpv)
+		tmmpdivv:= s.GetCSVDataVal(s.tmpDate, pIndicate.Key, s.parmp["div"], s.lastvalMap[pIndicate.Key], "div")
+		divv , _ := TryConvertToFloat(tmmpdivv)
+		
+		tmpslice := []float64{bpv, npv, divv}
 		// fmt.Println(tmpslice)
-
 		// 如果数据不包含NaN值(有效)，且不是初始天，添加到signals集合
 		if notNaN && notT0 {
 			// fmt.Println(tm)
@@ -175,56 +198,75 @@ func (s *VSO) OnDailyClose(framework handler.Framework, acc map[string]account.A
 				for i := 0; i < len(s.sIndicators); i++ {
 					GEPSlice[i] = indicate.ConvertToFloat(s.sIndicators[i])
 				}
-				// add the tmpslice to GEPSlice
 				GEPSlice = append(GEPSlice, tmpslice...)
-
 				tradeSignal = framework.Evaluate(GEPSlice)
 
 				if math.IsNaN(tradeSignal[0]) || math.IsInf(tradeSignal[0], 0) {
 					continue
 				}
-
-				gepCond := tradeSignal[0] > 0.0
-				condall = condall && gepCond
+				// fmt.Println(tradeSignal[0],condall)
 				if condall {
-					signals = append(signals, SortRank{instID: pIndicate.Key, signal: tradeSignal[0], close: closePrice})
+					signals = append(signals, SortRankVS{instID: pIndicate.Key, signal: tradeSignal[0], close: closePrice, vscond: true})
 				} else {
-					signals = append(signals, SortRank{instID: pIndicate.Key, signal: 0.0, close: closePrice})
+					signals = append(signals, SortRankVS{instID: pIndicate.Key, signal: 0.0, close: closePrice, vscond: false})
 				}
 
 			} else {
 				if condall {
-					signals = append(signals, SortRank{instID: pIndicate.Key, signal: 1.0, close: closePrice})
+					signals = append(signals, SortRankVS{instID: pIndicate.Key, signal: 1.0, close: closePrice, vscond: true})
 				} else {
-					signals = append(signals, SortRank{instID: pIndicate.Key, signal: 0.0, close: closePrice})
+					signals = append(signals, SortRankVS{instID: pIndicate.Key, signal: 0.0, close: closePrice, vscond: false})
 				}
 
 			}
 		}
-		// 如果数据不包含NaN值(有效)，是初始天，躲避初始日。
-		// 指标逻辑处理后添加到notTODay集合
+
 		if notNaN && !notT0 {
 			s.notTODay[pIndicate.Key] = void{}
 		}
-		// 如果不是初始天，但是有NaN值，删除
-		// 有缺失值，但不排除今后还会再有，再有数值就是初始天
-		// if !notNaN && notT0 {
-		// 	delete(s.notTODay, pIndicate.Key)
-		// }
-	}
 
-	// & Step 0.1 : 确认标的操作顺序 例如SB中 按照signal逆序计算等差买入金额
-	// & 可能存在潜在的排序操作
-	// sort.Slice(
-	// 	signals.Values(), func(i, j int) bool {
-	// 		return signals.Values()[i].signal < signals.Values()[j].signal
-	// 	},
-	// )
-	// if signals have values
-	if len(signals) != 0 {
-		s.tmpTargets = filterSignal(signals, func(sr SortRank) bool {
-			return sr.signal > 0.0
-		})
+	}
+	// fmt.Println(framework.CurrDate(),framework.CurrTime())
+
+	if s.bGEPMode {
+		if len(signals) != 0 {
+			tmp := filterSignalVS(signals, func(sr SortRankVS) bool {
+				// if sr.signal is not equal to NaN
+				return sr.vscond
+			})
+			if len(tmp) != 0 {
+				s.vsTargets = tmp
+				// fmt.Println(framework.CurrDate(),framework.CurrTime())
+
+			}
+			// s.vsTargets = tmp
+		}
+
+		if len(s.vsTargets) > 1 {
+			sort.Slice(
+				s.vsTargets, func(i, j int) bool {
+					return s.vsTargets[i].signal < s.vsTargets[j].signal
+				},
+			)
+		}
+
+		// set the tmpTargets, the length of tmpTargets is vsHoldNumR percent of the length of vsTargets
+		// and should be more than vsHoldNumM, or take them all
+		if len(s.vsTargets) != 0 {
+			if s.vsHoldNumM > len(s.vsTargets)*s.vsHoldNumR/100 {
+				s.tmpTargets = s.vsTargets
+			} else {
+				tmp := len(s.vsTargets) * s.vsHoldNumR / 100
+				// keep the last tmp elements
+				s.tmpTargets = s.vsTargets[len(s.vsTargets)-tmp:]
+			}
+		}
+	} else {
+		if len(signals) != 0 {
+			s.tmpTargets = filterSignalVS(signals, func(sr SortRankVS) bool {
+				return sr.signal > 0.0
+			})
+		}
 	}
 
 	// & Step 0.2 : 确认标的操作数量
@@ -319,13 +361,14 @@ func (s *VSO) OnDailyClose(framework handler.Framework, acc map[string]account.A
 
 }
 
-func (s *VSO) OnTick(
+func (s *VSS) OnTick(
 	// * 注意一下 这个函数返回在这里没什么用 在这里并没有尊重框架的设计
 	// * 后续所有的买卖实际上都是通过buy、sell方法来给策略结构体内的虚拟账户进行插入订单的操作
 	// * 而插入订单这个接口在StockSimple结构体中可以去同步实现链接交易功能 around line565
 
 	// - 这里不输出，所以replay->nextmode around line 212 实际上被架空了
 	// - 从一开始的设计来看，外层存在接收订单的接口实现然后对接柜台，这是最开始的想法
+	// + 爱怎么用就怎么用吧，其实框架也只是辅助，不是必须
 	framework handler.Framework, tm time.Time, indicators orderedmap.OrderedMap[string, dataframe.StreamingRecord],
 ) (orders []account.Order) {
 	// 判断股票标的切片SInstrNames是否为空，如果为空，则不操作股票数据循环
@@ -336,12 +379,12 @@ func (s *VSO) OnTick(
 		// deep copy the indicators
 		tmp := orderedmap.New[string, dataframe.StreamingRecord]()
 		for pIndicate := indicators.Oldest(); pIndicate != nil; pIndicate = pIndicate.Next() {
-			
+
 			tmpSR := dataframe.StreamingRecord{}
 			// copy the data to tmpSR.Data
-			tmpSR.Data = append(tmpSR.Data,pIndicate.Value.Data ...)
+			tmpSR.Data = append(tmpSR.Data, pIndicate.Value.Data...)
 			// iter pIndicate.Value.Headers Map and copy the data to tmpSR.Headers
-			
+
 			tmpSR.Headers = make(map[string]int)
 			for key, value := range pIndicate.Value.Headers {
 				tmpSR.Headers[key] = value
@@ -360,7 +403,7 @@ func (s *VSO) OnTick(
 	return
 }
 
-func (s *VSO) buy(instID string, qty, price float64) bool {
+func (s *VSS) buy(instID string, qty, price float64) bool {
 	// 买入
 	o, err := s.acc.NewOrder(
 		instID, qty,
@@ -396,7 +439,7 @@ func (s *VSO) buy(instID string, qty, price float64) bool {
 	}
 }
 
-func (s *VSO) sell(instID string, qty, price float64) bool {
+func (s *VSS) sell(instID string, qty, price float64) bool {
 	// 卖出
 	o, err := s.acc.NewOrder(
 		instID, qty,
@@ -435,7 +478,7 @@ func (s *VSO) sell(instID string, qty, price float64) bool {
 }
 
 // func to give the value of the CSVData
-func (s *VSO) GetCSVData(tmStr, InstID, IndiName string, lastvalmp map[string]string, key string) string {
+func (s *VSS) GetCSVData(tmStr, InstID, IndiName string, lastvalmp map[string]string, key string) string {
 	if s.lvMode == "LV" {
 		// this is the last value mode
 		// compare the value with the last value
@@ -473,6 +516,22 @@ func (s *VSO) GetCSVData(tmStr, InstID, IndiName string, lastvalmp map[string]st
 		}
 		return ""
 	}
+}
+
+
+func (s *VSS) GetCSVDataVal(tmStr, InstID, IndiName string, lastvalmp map[string]string, key string) string{
+
+	if v, ok := CSVData[tmStr]; ok {
+		if v1, ok1 := v[ModifyInstID(InstID)]; ok1 {
+			if v2, ok2 := v1[IndiName]; ok2 {
+				return v2
+			}
+		}
+		// if the value is not in the map return the last value
+	} else {
+		return ""
+	}
+	return ""
 }
 
 func init() {

@@ -5,6 +5,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/wonderstone/QuantKit/tools/dataframe"
 )
 
 // define void
@@ -15,7 +17,8 @@ type TradeSignal struct {
 	Input  []string `csv:"input"`
 	Func   string   `csv:"func"`
 }
-
+// this is for the VS strategy to save the signals from csv file.
+var CSVData map[string]map[string]map[string]string
 
 func arithmeticSequence(total float64, n int, ratio float64) []float64 {
 	// 1. create a slice with n elements
@@ -51,6 +54,16 @@ func filterSignal(signals []SortRank, filterSignal func(SortRank) bool) []SortRa
 	}
 	return res
 }
+func filterSignalVS(signals []SortRankVS, filterSignal func(SortRankVS) bool) []SortRankVS {
+	var res []SortRankVS
+	for _, signal := range signals {
+		if filterSignal(signal) {
+			res = append(res, signal)
+		}
+	}
+	return res
+}
+
 
 
 // the two functions below are used to filter out the signals based on the conditions
@@ -143,3 +156,14 @@ func TryConvertToFloat(val string) (float64, error) {
 	}
 	return value, nil
 }
+
+// ContainNaN 此处是为了停盘数据处理设定的规则相检查用的
+func ContainNaN(m dataframe.StreamingRecord) bool {
+	for _, x := range m.Data {
+		if len(x) == 0 {
+			return true
+		}
+	}
+	return false
+}
+
